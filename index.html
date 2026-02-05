@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buat Kamu 🤍</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#1d2671,#c33764);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  overflow:hidden;
+  color:white;
+}
+
+.card{
+  width:100%;
+  max-width:360px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  padding:24px 20px;
+  text-align:center;
+  box-shadow:0 25px 45px rgba(0,0,0,.45);
+}
+
+
+.avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:3px solid white;
+  object-fit:cover;
+  margin-bottom:12px;
+}
+
+.slide{display:none;animation:fade .8s}
+.slide.active{display:block}
+
+h2{
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+p{
+  font-size:15px;
+  line-height:1.7;
+}
+
+
+button{
+  margin-top:18px;
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:#ff5e8a;
+  color:white;
+  cursor:pointer;
+  font-size:15px;
+  width:100%;
+}
+
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* animasi hati */
+.heart{
+  position:fixed;
+  color:#ff5e8a;
+  font-size:18px;
+  animation:float 4s linear forwards;
+}
+@keyframes float{
+  from{transform:translateY(0);opacity:1}
+  to{transform:translateY(-100vh);opacity:0}
+}
+@media (max-width:360px){
+  h2{font-size:18px}
+  p{font-size:14px}
+}
+
+</style>
+</head>
+<body>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4c9d9c6f0c.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <div class="slide active">
+    <img src="https://i.imgur.com/8Km9tLL.png" class="avatar">
+    <h2>Hai Kamu 🤍</h2>
+    <p>Aku cuma mau bilang sesuatu…</p>
+    <button onclick="next()">Lanjut 💫</button>
+  </div>
+
+  <div class="slide">
+    <p>Entah kenapa tiap ngobrol sama kamu</p>
+    <p>rasanya selalu nyaman 🌙</p>
+    <button onclick="next()">Lanjut 💌</button>
+  </div>
+
+  <div class="slide">
+    <p>Aku nggak mau muter-muter lagi</p>
+    <p><b>Aku suka kamu 🤍</b></p>
+    <button onclick="next()">Lanjut 💖</button>
+  </div>
+
+  <div class="slide">
+    <p>Kalau kamu mau,</p>
+    <p>aku pengen kenal kamu lebih dekat 🌸</p>
+    <button onclick="jawab()">Klik di sini 🥰</button>
+  </div>
+</div>
+
+<script>
+let i=0;
+const slides=document.querySelectorAll('.slide');
+const music=document.getElementById('music');
+
+function next(){
+  if(i===0) music.play();
+  slides[i].classList.remove('active');
+  i++;
+  slides[i].classList.add('active');
+}
+
+function jawab(){
+  alert("Terima kasih sudah membaca 🤍");
+}
+
+setInterval(()=>{
+  const h=document.createElement('div');
+  h.className='heart';
+  h.innerHTML='❤';
+  h.style.left=Math.random()*100+'vw';
+  h.style.bottom='0';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),4000);
+},600);
+</script>
+
+</body>
+</html>
