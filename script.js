@@ -10,7 +10,8 @@ function next(){
 }
 
 function jawab(){
-  const avatar = document.getElementById("avatar");
+  const avatar=document.getElementById("avatar");
+  const popup=document.getElementById("popup");
 
   avatar.classList.remove("love");
   void avatar.offsetWidth;
@@ -27,6 +28,10 @@ function jawab(){
   }
 
   setTimeout(()=>{
-    alert("Terima kasih sudah membaca 🤍");
-  },600);
+    popup.classList.add("show");
+  },500);
+}
+
+function closePopup(){
+  document.getElementById("popup").classList.remove("show");
 }
