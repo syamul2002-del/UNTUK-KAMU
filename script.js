@@ -35,3 +35,7 @@ function jawab(){
 function closePopup(){
   document.getElementById("popup").classList.remove("show");
 }
+function playMusic(){
+  music.volume = 0.4;
+  music.play();
+}
