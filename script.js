@@ -89,7 +89,7 @@ function jawabYa(){
     setTimeout(()=>c.remove(),1500);
   }
 
-  tampilPopup(
+  tampilpopup(
     "💖 YEAY!",
     "Aku seneng banget 🤍<br>Makasih udah mau"
   );
