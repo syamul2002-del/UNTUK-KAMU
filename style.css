@@ -137,4 +137,38 @@ button{
   margin-top:14px;
   background:#ff5e8a;
 }
+.choice{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:16px;
+}
 
+.choice button{
+  flex:1;
+  padding:10px 0;        /* lebih kecil */
+  font-size:14px;        /* nggak kegedean */
+  border:none;
+  border-radius:22px;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.choice .yes{
+  background:#ff5e8a;
+  color:white;
+}
+
+.choice .no{
+  background:rgba(255,255,255,.25);
+  color:white;
+}
+.type{
+  min-height:1.3em;
+  white-space:nowrap;
+  overflow:hidden;
+  display:inline-block;
+}
+@keyframes blink{
+  50%{border-color:transparent;}
+}

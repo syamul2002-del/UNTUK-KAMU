@@ -19,28 +19,40 @@
     <div class="avatar-wrap">
       <img src="avatar.png" class="avatar" id="avatar">
     </div>
-    <h2>Hai Kamu 🤍</h2>
-    <p>Aku cuma mau bilang sesuatu…</p>
+    <h2 class="type" data-text="Hai Kamu 🤍"></h2>
+<p class="type" data-text="Aku cuma mau bilang sesuatu…"></p>
     <button onclick="playMusic(); next()">Lanjut 💫</button>
   </div>
 
   <div class="slide">
-    <p>Entah kenapa tiap ngobrol sama kamu</p>
-    <p>rasanya selalu nyaman 🌙</p>
+    <p class="type" data-text="Entah kenapa tiap ngobrol sama kamu"></p>
+<p class="type" data-text="rasanya selalu nyaman 🌙"></p>
+
     <button onclick="next()">Lanjut 💌</button>
   </div>
 
   <div class="slide">
-    <p>Aku nggak mau muter-muter lagi</p>
-    <p><b>Aku suka kamu 🤍</b></p>
+    <p class="type" data-text="Aku serius nanya nih…"></p>
+<p class="type" data-text="Mau jadi pacarku gak? 🤍"></p>
+
     <button onclick="next()">Lanjut 💖</button>
   </div>
 
   <div class="slide">
-    <p>Kalau kamu mau,</p>
-    <p>aku pengen kenal kamu lebih dekat 🌸</p>
-    <button onclick="jawab()">Klik di sini 🥰</button>
+  <p class="type">Aku serius nanya nih…</p>
+  <p><b>Mau jadi pacarku gak? 🤍</b></p>
+
+  <div class="choice">
+    <button class="yes" id="yesBtn" onclick="jawabYa()">Mau 💖</button>
+    <button class="no" id="noBtn" onclick="kabur()">Ga mau 🙈</button>
   </div>
+
+  <small id="kaburText" style="display:none;margin-top:8px;">
+    eh kok kabur 😭
+  </small>
+</div>
+
+
 
 </div>
 <div class="popup" id="popup">
