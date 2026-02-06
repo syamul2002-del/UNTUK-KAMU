@@ -95,25 +95,21 @@ function jawabYa(){
     "Aku seneng banget 🤍<br>Makasih udah mau"
   );
 }
-function typeText(el, speed = 40){
-  const text = el.dataset.text;
-  el.textContent = "";
-  let i = 0;
-
-  // cursor baru muncul SAAT ngetik
-  el.style.borderRight = "2px solid rgba(255,255,255,.8)";
-  el.style.animation = "blink .8s step-end infinite";
+function typeText(element, text, speed = 60, callback) {
+  let index = 0;
+  element.textContent = ""; // PENTING: kosongkan dulu
 
   const typing = setInterval(() => {
-    el.textContent += text.charAt(i);
-    i++;
-    if(i >= text.length){
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+    } else {
       clearInterval(typing);
-      el.style.borderRight = "none";
-      el.style.animation = "none";
+      if (callback) callback();
     }
   }, speed);
 }
+
 
 
 function typeSlide(slide){
@@ -135,3 +131,8 @@ fetch("https://formspree.io/f/mykdgoly", {
     message: "Dia menekan tombol MAU 💖"
   })
 });
+
+function mau() {
+  document.getElementById("https://formspree.io/f/mykdgoly").submit();
+  tampilPopup();
+}
