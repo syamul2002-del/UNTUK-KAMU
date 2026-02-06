@@ -15,8 +15,8 @@ function next(){
 
 
 function jawab(){
-  const avatar=document.getElementById("avatar");
-  const popup=document.getElementById("popup");
+  const avatar = document.getElementById("avatar");
+  const popup = document.getElementById("popup");
 
   avatar.classList.remove("love");
   void avatar.offsetWidth;
@@ -40,6 +40,7 @@ function jawab(){
 function closePopup(){
   document.getElementById("popup").classList.remove("show");
 }
+
 function playMusic(){
   music.volume = 0.4;
   music.play();

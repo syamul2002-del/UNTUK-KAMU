@@ -106,27 +106,34 @@ button{
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.4);
-  display:none;
+  background:rgba(0,0,0,.55);
+  display:flex;
   justify-content:center;
   align-items:center;
-  z-index:999;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:99;
 }
 
 .popup.show{
-  display:flex;
+  opacity:1;
+  pointer-events:auto;
 }
 
 .popup-box{
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(14px);
-  padding:22px 20px;
+  background:#2a1e2f;
+  padding:22px;
   border-radius:18px;
   text-align:center;
-  color:white;
-  width:90%;
+  width:85%;
   max-width:300px;
-  animation:fade .4s;
+  animation:pop .4s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
 }
 
 .popup-box h3{
