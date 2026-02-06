@@ -128,3 +128,10 @@ function typeSlide(slide){
 
 typeSlide(slides[0]);
 
+fetch("https://formspree.io/f/mykdgoly", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    message: "Dia menekan tombol MAU 💖"
+  })
+});
