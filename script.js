@@ -46,8 +46,8 @@ function typeSlide(slide){
   let delay = 0;
 
   texts.forEach(el => {
-    const text = el.dataset.text;
-    if(!text) return; // biar gak error
+    const text = el.getAttribute("data-text");
+    if(!text) return;
 
     setTimeout(() => {
       typeText(el, text);
@@ -56,6 +56,7 @@ function typeSlide(slide){
     delay += text.length * 40 + 300;
   });
 }
+
 
 typeSlide(slides[0]);
 
