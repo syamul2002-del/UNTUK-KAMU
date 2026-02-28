@@ -16,6 +16,90 @@ body{
   color:white;
 }
 
+/* Envelope Overlay */
+.envelope-overlay{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#1d2671,#c33764);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:100;
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+.envelope-overlay.hide{
+  opacity:0;
+  transform:scale(1.1);
+  pointer-events:none;
+}
+
+.envelope{
+  width:200px;
+  height:140px;
+  background:#ffffff;
+  border-radius:10px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  transition:transform 0.3s ease;
+  animation:pulse 1.5s ease-in-out infinite;
+}
+
+.envelope:hover{
+  transform:scale(1.05);
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+}
+
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  border-left:100px solid transparent;
+  border-right:100px solid transparent;
+  border-top:70px solid #f0f0f0;
+  transform-origin:top;
+  transition:transform 0.4s ease;
+}
+
+.envelope.open .flap{
+  transform:rotateX(180deg);
+  z-index:1;
+}
+
+.heart-seal{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:40px;
+  z-index:2;
+  transition:opacity 0.3s ease;
+}
+
+.envelope.open .heart-seal{
+  opacity:0;
+}
+
+.click-hint{
+  margin-top:30px;
+  font-size:16px;
+  color:rgba(255,255,255,0.8);
+  animation:blinkHint 1.5s ease-in-out infinite;
+}
+
+@keyframes blinkHint{
+  0%,100%{opacity:1;}
+  50%{opacity:0.5;}
+}
+
 .card{
   width:100%;
   max-width:360px;

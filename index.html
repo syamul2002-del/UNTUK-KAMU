@@ -13,7 +13,16 @@
   <source src="lagu.mp3" type="audio/mpeg">
 </audio>
 
-<div class="card">
+<!-- Envelope Overlay -->
+<div class="envelope-overlay" id="envelopeOverlay">
+  <div class="envelope" onclick="openEnvelope()">
+    <div class="flap"></div>
+    <div class="heart-seal">💌</div>
+  </div>
+  <p class="click-hint">Klik amplopnya 🤍</p>
+</div>
+
+<div class="card" id="mainCard" style="display:none;">
 
   <div class="slide active">
   <div class="avatar-wrap">
@@ -22,7 +31,7 @@
 
   <h2 class="type" data-text="Hai Kamu 🤍"></h2>
   <p class="type" data-text="Aku cuma mau bilang sesuatu..."></p>
-  <button onclick="playMusic(); next()">Lanjut 💫</button>
+  <button onclick="next()">Lanjut 💫</button>
 </div>
 
 
@@ -55,23 +64,54 @@
 
   <div class="choice">
     <button class="yes" id="yesBtn" onclick="jawab()">Mau 💖</button>
-    <button class="no" id="noBtn" onclick="kabur()">Ga mau 🙈</button>
+    <button class="no" id="noBtn" onclick="next()">Ga mau 🙈</button>
   </div>
-
-  <small id="kaburText" style="display:none;margin-top:8px;">
-    eh kok kabur 😭
-  </small>
 </div>
+
+  <div class="slide">
+    <div class="avatar-wrap">
+      <img src="mohon.gif" class="avatar">
+    </div>
+    <p class="type" data-text="Baiklah..."></p>
+    <p class="type" data-text="Bolehkah aku memperjuangkan mu? 🤍"></p>
+
+    <div class="choice">
+      <button class="yes" onclick="perjuangkanPopup()">Boleh 💖</button>
+      <button class="no" onclick="temanPopup()">Kita temenan aja 🙈</button>
+    </div>
+  </div>
 
 </div>
 <div class="popup" id="popup">
   <div class="popup-box">
     <div class="avatar-wrap">
+      <img src="terlope2.gif" class="avatar">
+    </div>
+    <h3>🤍 Yayyy!</h3>
+    <p>Terima kasih sudah menjadi pacarku<br>Semoga harimu bahagia selalu bersamaku 🌸</p>
+    <button onclick="closePopup()">Oke 💖</button>
+  </div>
+</div>
+
+<div class="popup" id="perjuangkanPopup">
+  <div class="popup-box">
+    <div class="avatar-wrap">
       <img src="ciumin.gif" class="avatar">
     </div>
     <h3>🤍 Makasih ya</h3>
-    <p>Terima kasih sudah menjadi pacarku<br>Semoga harimu bahagia selalu bersamaku 🌸</p>
-    <button onclick="closePopup()">Oke 💖</button>
+    <p>Terima kasih sudah memberi kesempatan<br>untuk memperjuangkanmu 🌸<br>Aku yakin suatu hari nanti<br>akan mendapatkanmu 🤍</p>
+    <button onclick="closePerjuangkanPopup()">Oke 💖</button>
+  </div>
+</div>
+
+<div class="popup" id="temanPopup">
+  <div class="popup-box">
+    <div class="avatar-wrap">
+      <img src="senyum.gif" class="avatar">
+    </div>
+    <h3>Yaudah 🤍</h3>
+    <p>Kita temenan aja yaa<br>Tapi aku ingin mengenal<br>mu lebih dalam yaa<br>Okee 🤍</p>
+    <button onclick="closeTemanPopup()">Oke 💖</button>
   </div>
 </div>
 
