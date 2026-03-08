@@ -253,6 +253,21 @@ button{
   background:rgba(255,255,255,.25);
   color:white;
 }
+
+/* Tombol besar setelah 3 kali klik */
+.btn-besar {
+  padding: 20px 40px !important;
+  font-size: 20px !important;
+  width: 100% !important;
+  background: linear-gradient(135deg, #ff5e8a, #ff9966) !important;
+  box-shadow: 0 8px 25px rgba(255, 94, 138, 0.4) !important;
+  animation: pulseBesar 1s ease-in-out infinite;
+}
+
+@keyframes pulseBesar {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
 .type{
   min-height:1.3em;
   white-space:nowrap;
@@ -267,4 +282,9 @@ button{
   0% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
+}
+
+#temanNoBtn{
+  transition: 0.2s;
+  cursor: pointer;
 }

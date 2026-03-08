@@ -2,30 +2,35 @@ let i = 0;
 const slides = document.querySelectorAll('.slide');
 const music = document.getElementById('music');
 
+/* =========================
+   ENVELOPE OPEN
+========================= */
+
 function openEnvelope(){
   const envelope = document.querySelector('.envelope');
   const overlay = document.getElementById('envelopeOverlay');
   const mainCard = document.getElementById('mainCard');
-  
+
   envelope.classList.add('open');
-  
-  // Play music from second 9
+
   music.currentTime = 9;
   music.volume = 0.4;
   music.play().catch(() => {});
-  
+
   setTimeout(() => {
     overlay.classList.add('hide');
     mainCard.style.display = 'block';
-    
-    // Start typing effect on first slide after envelope opens
     typeSlide(slides[0]);
   }, 400);
-  
+
   setTimeout(() => {
     overlay.style.display = 'none';
   }, 1000);
 }
+
+/* =========================
+   SLIDE CONTROL
+========================= */
 
 function next(){
   slides[i].classList.remove("active");
@@ -38,7 +43,7 @@ function next(){
 }
 
 /* =========================
-   TYPING EFFECT (FIX AMAN)
+   TYPING EFFECT
 ========================= */
 
 function typeText(element, text, speed = 50, callback){
@@ -73,28 +78,34 @@ function typeSlide(slide){
 }
 
 /* =========================
-   JAWAB YA (POPUP + EFEK)
+   EFEK HATI
 ========================= */
 
-function jawab(){
-  const popup = document.getElementById("popup");
-
-  // efek hati
+function heartEffect(symbol="❤"){
   for(let i=0;i<15;i++){
     const h=document.createElement("div");
     h.className="heart";
-    h.innerHTML="❤";
+    h.innerHTML=symbol;
     h.style.left="50%";
     h.style.bottom="50%";
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),1800);
   }
+}
+
+/* =========================
+   JAWAB YA
+========================= */
+
+function jawab(){
+  const popup = document.getElementById("popup");
+
+  heartEffect("❤");
 
   setTimeout(()=>{
     popup.classList.add("show");
   },500);
 
-  // kirim email ke Formspree
   fetch("https://formspree.io/f/mykdgoly", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -108,18 +119,14 @@ function closePopup(){
   document.getElementById("popup").classList.remove("show");
 }
 
+/* =========================
+   POPUP PERJUANGKAN
+========================= */
+
 function perjuangkanPopup(){
   const popup = document.getElementById("perjuangkanPopup");
-  
-  for(let i=0;i<15;i++){
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="❤";
-    h.style.left="50%";
-    h.style.bottom="50%";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),1800);
-  }
+
+  heartEffect("❤");
 
   setTimeout(()=>{
     popup.classList.add("show");
@@ -130,24 +137,38 @@ function closePerjuangkanPopup(){
   document.getElementById("perjuangkanPopup").classList.remove("show");
 }
 
-function temanPopup(){
-  const popup = document.getElementById("temanPopup");
-  
-  for(let i=0;i<15;i++){
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="🤍";
-    h.style.left="50%";
-    h.style.bottom="50%";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),1800);
+/* =========================
+   TOMBOL TEMAN KABUR
+========================= */
+
+let temanClickCount = 0;
+
+function kaburTeman(){
+
+  const noBtn = document.getElementById("temanNoBtn");
+  const yesBtn = document.querySelector("#temanChoice .yes");
+
+  temanClickCount++;
+
+  if(temanClickCount >= 3){
+
+    // tombol temenan hilang
+    noBtn.style.display = "none";
+
+    // tombol boleh jadi besar
+    yesBtn.style.transform = "scale(1.8)";
+    yesBtn.style.transition = "0.3s";
+    yesBtn.innerText = "Yaudah Boleh 💖";
+
+    return;
   }
 
-  setTimeout(()=>{
-    popup.classList.add("show");
-  },500);
-}
+  // tombol kabur random
+  const x = Math.random() * 300 - 150;
+  const y = Math.random() * 200 - 100;
 
-function closeTemanPopup(){
-  document.getElementById("temanPopup").classList.remove("show");
+  noBtn.style.position = "relative";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+  noBtn.style.transition = "0.2s";
 }
