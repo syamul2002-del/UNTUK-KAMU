@@ -131,12 +131,22 @@ function perjuangkanPopup(){
   setTimeout(()=>{
     popup.classList.add("show");
   },500);
+
+  // kirim ke email
+  fetch("https://formspree.io/f/mykdgoly", {
+    method: "POST",
+    headers: { 
+      "Content-Type": "application/json" 
+    },
+    body: JSON.stringify({
+      message: "Dia menekan tombol BOLEH PERJUANGKANMU 💘"
+    })
+  }).catch(() => {});
 }
 
 function closePerjuangkanPopup(){
   document.getElementById("perjuangkanPopup").classList.remove("show");
 }
-
 /* =========================
    TOMBOL TEMAN KABUR
 ========================= */
